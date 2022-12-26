@@ -1,7 +1,7 @@
 #import load_dotenv function from python-dotenv library
 from dotenv import load_dotenv
-import os
 from telegram import Bot
+from supabase import create_client, Client
 import os
 
 # The load_dotenv function will read a file named .env in the current working directory.
@@ -16,3 +16,7 @@ userAlId: str = os.environ['USER_AL_ID'] # do the same for USER_AL_ID
 curatatronu9000Bot: Bot = Bot(token=CURATATRONU9000_API_TOKEN)
 
 curatatronu9000Bot.send_message(text='INIȚIERE PROTOCOL TEST...', chat_id=userAlId)
+
+SUPABASE_URL: str = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY")
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
