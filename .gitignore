@@ -1,2 +1,4 @@
 # Ignore all files that contain environment variables
 .env*
+# Allow just the file that contains the samples of the environment variables uses
+!.env.sample
