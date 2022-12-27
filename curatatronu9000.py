@@ -1,5 +1,6 @@
 #import load_dotenv function from python-dotenv library
 from dotenv import load_dotenv
+from random import randint
 from telegram import Bot
 from supabase import create_client, Client
 import os
@@ -20,3 +21,22 @@ curatatronu9000Bot.send_message(text='INIȚIERE PROTOCOL TEST...', chat_id=userA
 SUPABASE_URL: str = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+randomGreeting = ''
+randomResponsible = ''
+numeResponsabili = []
+
+dbGreetingsDictsList = supabase.table("greetings").select("greeting").execute().data
+if(len(dbGreetingsDictsList) > 0):
+    randomIndex = randint(0, len(dbGreetingsDictsList) - 1)
+    randomDataEntry = (dbGreetingsDictsList[randomIndex])
+    randomGreeting = randomDataEntry['greeting']
+
+dbResponsibleDictsList = supabase.table("responsabili-curatenie").select("nume").execute().data
+if(len(dbResponsibleDictsList) > 0):
+    for x in dbResponsibleDictsList:
+        numeResponsabili.append( x['nume'])
+    randomIndex = randint(0, len(numeResponsabili) - 1)
+    randomResponsible = numeResponsabili[randomIndex]
+
+print(randomGreeting.replace("@user", randomResponsible ))
