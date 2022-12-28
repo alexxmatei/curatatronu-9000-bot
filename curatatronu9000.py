@@ -1,8 +1,8 @@
-#import load_dotenv function from python-dotenv library
-from dotenv import load_dotenv
-from telegram import Bot
-from supabase import create_client, Client
 import os
+from telegram import Bot
+from datetime import datetime
+from dotenv import load_dotenv
+from supabase import create_client, Client
 
 # The load_dotenv function will read a file named .env in the current working directory.
 # It will then load any environment variables that are defined in the file.
@@ -20,3 +20,10 @@ curatatronu9000Bot.send_message(text='INIȚIERE PROTOCOL TEST...', chat_id=userA
 SUPABASE_URL: str = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+def getCurrentWeekNr():
+    now = datetime.now()
+    weekNr = int(now.strftime("%W"))
+    return weekNr
+
+print("Week:",getCurrentWeekNr())
