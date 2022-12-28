@@ -1,8 +1,7 @@
-#import load_dotenv function from python-dotenv library
-from dotenv import load_dotenv
-from telegram import Bot
-from supabase import create_client, Client
 import os
+from telegram import Bot
+from dotenv import load_dotenv
+from supabase import create_client, Client
 
 # The load_dotenv function will read a file named .env in the current working directory.
 # It will then load any environment variables that are defined in the file.
