@@ -1,6 +1,7 @@
 import os
 from telegram import Bot
 from dotenv import load_dotenv
+from timedate import getCurrentWeekNr
 from supabase import create_client, Client
 
 # The load_dotenv function will read a file named .env in the current working directory.
@@ -19,3 +20,5 @@ curatatronu9000Bot.send_message(text='INIȚIERE PROTOCOL TEST...', chat_id=userA
 SUPABASE_URL: str = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+print(getCurrentWeekNr())
