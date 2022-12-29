@@ -2,3 +2,5 @@
 .env*
 # Allow just the file that contains the samples of the environment variables uses
 !.env.sample
+
+__pycache__
