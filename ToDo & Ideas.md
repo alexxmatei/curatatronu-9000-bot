@@ -16,4 +16,5 @@
 # Ideas
  - Implement a system to estimate each task duration and their importance
    - could be done using emojiis here or other symbols
+ - Detect when scheduler gets a message to shut down (Ctrl + C) and send a message, "Bot shutting down..." for example.
  - Create an MVP
