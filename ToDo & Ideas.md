@@ -11,6 +11,7 @@
    - Print table when a person's duty ends (Maybe calculate a score)
    - Start the week by mentioning the new person's shift and print their table
  - Add bi-weekly, monthly and asynchronous tasks
+ - Investigate Supabase / Postgres database naming convention (snake_case vs camelCase)
 
 <br></br>
 # Ideas
