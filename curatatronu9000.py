@@ -11,5 +11,10 @@ def cbSendScheduledMessage(context: CallbackContext):
 
 jobWeekly = job.run_daily(cbSendScheduledMessage, newShiftStart.time, newShiftStart.day)
 
+# TODO - Make more elegant
+# List scheduled jobs
+for x in range(job.jobs().__len__()):
+    print(job.jobs()[x].job)
+
 updater.start_polling()
 updater.idle()
