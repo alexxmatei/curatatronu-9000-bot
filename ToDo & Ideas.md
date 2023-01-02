@@ -35,3 +35,5 @@
    - could be done using emojiis here or other symbols
  - Detect when scheduler gets a message to shut down (Ctrl + C) and send a message, "Bot shutting down..." for example.
  - Create an MVP
+ - Make bot be able to pin messages
+ - Give ability to bot to track coffee drinked
