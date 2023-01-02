@@ -1,4 +1,7 @@
 # ToDo
+ - Add formatter to repo
+ - Replace @user with telegramId when available
+ - Add versioning
  - Commands to implement
    - Ability to check off commands
    - Make it print a table with:
@@ -11,6 +14,8 @@
    - Print table when a person's duty ends (Maybe calculate a score)
    - Start the week by mentioning the new person's shift and print their table
  - Add bi-weekly, monthly and asynchronous tasks
+ - Add documentation & examples about libraries used
+   - Example: Bot.send_message(text='some-text', chat_id=CHAT_ID)
 
 <br></br>
 # Ideas
