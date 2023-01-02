@@ -11,9 +11,14 @@ class Shift:
     self.message = message
 
 # TODO - Make private?
-newShiftStartTime = time(hour=8, minute=0, second=0, tzinfo=pytz.timezone("Europe/Bucharest"))
+newShiftStartTime = time(hour=8, minute=0, second=10, tzinfo=pytz.timezone("Europe/Bucharest"))
 newShiftStartDay = [MONDAY]
 newShiftStartMessage = generateNewShiftStartMessage()
 
 newShiftStart = Shift(newShiftStartTime, newShiftStartDay, newShiftStartMessage)
 
+times = time(newShiftStartTime.hour, newShiftStartTime.minute, newShiftStartTime.second-10, tzinfo=pytz.timezone("Europe/Bucharest"))
+days = newShiftStartDay
+msg="🤖🧹INIȚIERE PROGRAM DE CURĂȚENIE...🧹🤖"
+
+programStart = Shift(times, days, msg)
