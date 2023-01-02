@@ -16,6 +16,7 @@
  - Add bi-weekly, monthly and asynchronous tasks
  - Add documentation & examples about libraries used
    - Example: Bot.send_message(text='some-text', chat_id=CHAT_ID)
+ - Investigate Supabase / Postgres database naming convention (snake_case vs camelCase)
 
 <br></br>
 # Ideas
