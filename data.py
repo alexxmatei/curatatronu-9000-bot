@@ -7,6 +7,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 CURATATRONU9000_API_TOKEN: str = os.environ['CURATATRONU9000_API_TOKEN']
-userAlId: str = os.environ['USER_AL_ID'] # do the same for USER_AL_ID
+groupFacetiBaCuratenie: str = os.environ['GROUP_FACETIBACURATENIE_ID']
 SUPABASE_URL: str = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY")
