@@ -36,4 +36,5 @@
  - Detect when scheduler gets a message to shut down (Ctrl + C) and send a message, "Bot shutting down..." for example.
  - Create an MVP
  - Make bot be able to pin messages
+ - Make bot be able to handle Telegram nicknames (Implement nicknames in database as well)
  - Give ability to bot to track coffee drinked
