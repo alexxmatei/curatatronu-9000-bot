@@ -1,0 +1,28 @@
+# TODO - Validate type to be int (TypeError if fails) and value to be [1,53] (ValueError if fails)
+#      - Also keep in mind getCurrentWeekNr() can return 0 figure a workaround
+from queries import getDbRandomGreeting, getDbResponsibleNameByOrderNr
+from stringlib import replaceUserNameInMessage
+from timedate import getCurrentWeekNr
+
+
+def calcResponsibleOrderNrInWeekNr(weekNr: int):
+    """Calculates the order_number of the responsible for the given week number.
+
+    Args:
+        weekNr (`int`) - Must be value between 1 and 53. The number of the week in a year.
+    Returns:
+        :class:`int` - The order_number of the responsible in that given week.
+    """
+    return (weekNr - 1) % 4 + 1
+
+# TODO - Function description
+#      - Move into a new file?
+def generateNewShiftStartMessage():
+    # TODO - Define type "weekly-shift-start" (and others) somewhere
+    randomWeeklyShiftStartMsg=getDbRandomGreeting("weekly-shift-start")
+    # TODO WeekNr = 0 on 01.01.2023, look into this
+    currentWeekResponsibleOrderNr = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
+    currentWeekResponsibleName = (getDbResponsibleNameByOrderNr(currentWeekResponsibleOrderNr))
+    # TODO - Specify "@user" pattern somewhere as a constant
+    newShiftStartMessage = replaceUserNameInMessage(randomWeeklyShiftStartMsg, "@user", currentWeekResponsibleName)
+    return newShiftStartMessage
