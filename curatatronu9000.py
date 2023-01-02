@@ -12,6 +12,7 @@ def cbSendScheduledMessage(context: CallbackContext):
 jobWeekly = job.run_daily(cbSendScheduledMessage, newShiftStart.time, newShiftStart.day)
 
 # TODO - Make more elegant
+#      - Add more details (chat_id, etc.)
 # List scheduled jobs
 for x in range(job.jobs().__len__()):
     print(job.jobs()[x].job)
