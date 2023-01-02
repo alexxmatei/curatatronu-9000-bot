@@ -12,6 +12,7 @@
    - User (user1) can move task to another user (user2)
      - If user2 completes task, they receive bonus points, user1 loses points
    - Issue 4 warnings before penalizing (immediate, 2 hours, 12 hours, 22 hours)
+ - Add a schedule report command to print all the queued jobs and the messages that will be printed in the current week (maybe next week too)
 ### Schedule to implement
  - Reminder 2 days before week ends (8AM)
  - Reminders the last day before week ends
