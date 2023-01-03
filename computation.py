@@ -13,6 +13,10 @@ def calcResponsibleOrderNrInWeekNr(weekNr: int):
     Returns:
         :class:`int` - The order_number of the responsible in that given week.
     """
+    if not isinstance(weekNr, int):
+        raise TypeError("Input must be an integer.")
+    if weekNr < 1 or weekNr > 53:
+        raise ValueError("Input must be between 1 and 53.")
     return (weekNr - 1) % 4 + 1
 
 # TODO - Function description
