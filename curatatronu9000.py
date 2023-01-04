@@ -7,6 +7,8 @@ job: JobQueue = updater.job_queue
 
 # TODO - Function description
 def cbSendScheduledMessage(context: CallbackContext):
+    if not isinstance(context, CallbackContext):
+        raise TypeError("Input must be of type CallbackContext.")
     context.bot.send_message(chat_id=groupFacetiBaCuratenie, text=newShiftStart.message)
 
 jobWeekly = job.run_daily(cbSendScheduledMessage, newShiftStart.time, newShiftStart.day)

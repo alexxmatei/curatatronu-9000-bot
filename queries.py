@@ -8,7 +8,7 @@ from data import SUPABASE_KEY, SUPABASE_URL
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# TODO - Validate order value? (1-4); or just return None?
+# TODO - Validate function output?
 def getDbResponsibleNameByOrderNr(order: int) -> str | None:         
     """Returns a responsible from the database corresponding to the order given.
 
@@ -17,6 +17,12 @@ def getDbResponsibleNameByOrderNr(order: int) -> str | None:
     Returns:
         :class:`str | None`
     """
+    if not isinstance(order, int):
+        raise TypeError("Input must be an integer.")
+    # TODO - define 1 and 4 somewhere
+    if order < 1 or order > 4:
+        raise ValueError("Input must be between 1 and 4.")
+
     dbResponsibleDictsList = supabase.table("responsabili_curatenie").select("nume").eq("order_nr", order).execute().data
     if(len(dbResponsibleDictsList) > 0):
         return dbResponsibleDictsList[0]['nume']
@@ -30,6 +36,10 @@ def getDbRandomGreeting(type: Optional[str] = None) -> str | None:
     Returns:
         :class:`str | None`
     """
+    if (type is not None) and (not isinstance(type, str)):
+        raise TypeError("Input must be a string.")
+    # TODO - Value error if not a supported type
+
     if (type == None):
         # Get the list of all greetings of any type
         dbGreetingsDictsList = supabase.table("greetings").select("greeting").execute().data
