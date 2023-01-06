@@ -31,6 +31,7 @@
    - Example: Bot.send_message(text='some-text', chat_id=CHAT_ID)
  - Investigate Supabase / Postgres database naming convention (snake_case vs camelCase)
  - Add formatter (make it format on save)
+   - Also add config file to format on save
  - Look into Supabase stricter data validation
 
 <br></br>
