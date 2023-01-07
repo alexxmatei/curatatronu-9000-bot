@@ -23,6 +23,7 @@ def calcResponsibleOrderNrInWeekNr(weekNr: int):
 #      - Move into a new file?
 def generateNewShiftStartMessage():
     # TODO - Define type "weekly-shift-start" (and others) somewhere
+    # TODO - Edit, use the new naming convention for values (snake_casing)
     randomWeeklyShiftStartMsg=getDbRandomGreeting("weekly-shift-start")
     # TODO WeekNr = 0 on 01.01.2023, look into this
     currentWeekResponsibleOrderNr = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
