@@ -15,6 +15,7 @@
  - Swap command for the user that requests it to swap with another user (temporarily for the current month, permanent, or both?)
  - Skip command for the user that requests it (skip their week). Possibly make it a vote (poll). Keep track of skips?
  - Add a schedule report command to print all the queued jobs and the messages that will be printed in the current week (maybe next week too)
+ - Add a more strict schema validation to Supabase (for example make text more restrictive, ex: greetings/table/type should be restricted to "weekly-shift-start" or "greeting-addressed" or "greeting-generic")
 ### Schedule to implement
  - Reminder 2 days before week ends (8AM)
  - Reminders the last day before week ends
