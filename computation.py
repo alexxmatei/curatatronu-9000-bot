@@ -1,5 +1,4 @@
-# TODO - Validate type to be int (TypeError if fails) and value to be [1,53] (ValueError if fails)
-#      - Also keep in mind getCurrentWeekNr() can return 0 figure a workaround
+# TODO - Keep in mind getCurrentWeekNr() can return 0 figure a workaround
 from queries import getDbRandomGreeting, getDbResponsibleNameByOrderNr
 from stringlib import replaceUserNameInMessage
 from timedate import getCurrentWeekNr
