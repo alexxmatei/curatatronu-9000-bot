@@ -11,7 +11,7 @@ def cbSendScheduledMessage(context: CallbackContext):
         raise TypeError("Input must be of type CallbackContext.")
     context.bot.send_message(chat_id=groupFacetiBaCuratenie, text=newShiftStart.message)
 
-jobWeekly = job.run_daily(cbSendScheduledMessage, newShiftStart.time, newShiftStart.day)
+jobWeekly = job.run_daily(cbSendScheduledMessage, newShiftStart.startTime, newShiftStart.days)
 
 # TODO - Make more elegant
 #      - Add more details (chat_id, etc.)
