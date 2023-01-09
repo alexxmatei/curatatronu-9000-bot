@@ -23,7 +23,7 @@ def calcResponsibleOrderNrInWeekNr(weekNr: int):
 def generateNewShiftStartMessage():
     # TODO - Define type "weekly-shift-start" (and others) somewhere
     # TODO - Edit, use the new naming convention for values (snake_casing)
-    randomWeeklyShiftStartMsg=getDbRandomGreeting("weekly-shift-start")
+    randomWeeklyShiftStartMsg=getDbRandomGreeting("weekly_shift_start")
     # TODO WeekNr = 0 on 01.01.2023, look into this
     currentWeekResponsibleOrderNr = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
     currentWeekResponsibleName = (getDbResponsibleNameByOrderNr(currentWeekResponsibleOrderNr))
