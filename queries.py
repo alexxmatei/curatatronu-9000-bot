@@ -20,6 +20,7 @@ def getDbResponsibleNameByOrderNr(order: int) -> str | None:
     if not isinstance(order, int):
         raise TypeError("Input must be an integer.")
     # TODO - define 1 and 4 somewhere
+    # TODO - hardcoding this doesn't seem like a good idea
     if order < 1 or order > 4:
         raise ValueError("Input must be between 1 and 4.")
 

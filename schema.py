@@ -1,8 +1,13 @@
 # TODO - Description & Validation for all classes in file
-from typing import List
+from enum import Enum
+from typing import List, Literal
+
+# TODO - Do value validation based on these parameters
+GreetingsType = Literal["weekly_shift_start", "greeting_addressed", "greeting_generic"]
+Occurrence = Literal["weekly"]
 
 class Tasks:
-    def __init__(self, id: int, createdAt: str = None, task: str = None, description: str = None, occurrence: str = None):
+    def __init__(self, id: int, createdAt: str = None, task: str = None, description: str = None, occurrence: Occurrence = None):
         self.id = id
         self.createdAt = createdAt
         self.task = task
@@ -11,7 +16,7 @@ class Tasks:
 
 
 class Greetings:
-    def __init__(self, id: int, createdAt: str = None, greeting: str = None, type: str = None):
+    def __init__(self, id: int, createdAt: str = None, greeting: str = None, type: GreetingsType = None):
         self.id = id
         self.createdAt = createdAt
         self.greeting = greeting
@@ -27,7 +32,7 @@ class Weeks:
         self.tasksDone = tasksDone or []
 
 
-class Responsabili_curatenie:
+class ResponsabiliCuratenie:
     def __init__(self, id: int, createdAt: str = None, nume: str = None, telegramId: str = None, order_nr: int = None):
         self.id = id
         self.createdAt = createdAt
