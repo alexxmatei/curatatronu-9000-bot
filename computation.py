@@ -1,5 +1,6 @@
 # TODO - Keep in mind getCurrentWeekNr() can return 0 figure a workaround
 from queries import getDbRandomGreeting, getDbResponsibleNameByOrderNr
+from schema import GreetingsType
 from stringlib import replaceUserNameInMessage
 from timedate import getCurrentWeekNr
 
@@ -23,7 +24,7 @@ def calcResponsibleOrderNrInWeekNr(weekNr: int):
 def generateNewShiftStartMessage():
     # TODO - Define type "weekly-shift-start" (and others) somewhere
     # TODO - Edit, use the new naming convention for values (snake_casing)
-    randomWeeklyShiftStartMsg=getDbRandomGreeting("weekly_shift_start")
+    randomWeeklyShiftStartMsg=getDbRandomGreeting(GreetingsType.weeklyShiftStart.value)
     # TODO WeekNr = 0 on 01.01.2023, look into this
     currentWeekResponsibleOrderNr = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
     currentWeekResponsibleName = (getDbResponsibleNameByOrderNr(currentWeekResponsibleOrderNr))

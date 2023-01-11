@@ -1,10 +1,15 @@
 # TODO - Description & Validation for all classes in file
 from enum import Enum
-from typing import List, Literal
 
 # TODO - Do value validation based on these parameters
-GreetingsType = Literal["weekly_shift_start", "greeting_addressed", "greeting_generic"]
-Occurrence = Literal["weekly"]
+class GreetingsType(Enum):
+    weeklyShiftStart = "weekly_shift_start"
+    greetingAddressed = "greeting_addressed"
+    greetingGeneric = "greeting_generic"
+
+class Occurrence(Enum):
+    weekly = "weekly"
+
 
 class Tasks:
     def __init__(self, id: int, createdAt: str = None, task: str = None, description: str = None, occurrence: Occurrence = None):
