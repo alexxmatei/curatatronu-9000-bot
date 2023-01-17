@@ -3,6 +3,7 @@ from queries import getDbRandomGreeting, getDbResponsibleNameByOrderNr
 from schema import GreetingsType
 from stringlib import replaceUserNameInMessage
 from timedate import getCurrentWeekNr
+from data import userNamePattern
 
 
 def calcResponsibleOrderNrInWeekNr(weekNr: int):
@@ -26,6 +27,5 @@ def generateNewShiftStartMessage():
     # TODO WeekNr = 0 on 01.01.2023, look into this
     currentWeekResponsibleOrderNr = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
     currentWeekResponsibleName = (getDbResponsibleNameByOrderNr(currentWeekResponsibleOrderNr))
-    # TODO - Specify "@user" pattern somewhere as a constant
-    newShiftStartMessage = replaceUserNameInMessage(randomWeeklyShiftStartMsg, "@user", currentWeekResponsibleName)
+    newShiftStartMessage = replaceUserNameInMessage(randomWeeklyShiftStartMsg, userNamePattern, currentWeekResponsibleName)
     return newShiftStartMessage
