@@ -44,3 +44,4 @@
  - Make bot be able to pin messages
  - Make bot be able to handle Telegram nicknames (Implement nicknames in database as well)
  - Give ability to bot to track coffee drinked
+ - Add a command to ask if anybody wants anything from a supermarket
