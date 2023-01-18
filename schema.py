@@ -1,5 +1,6 @@
 # TODO - Description & Validation for all classes in file
 from enum import Enum
+from typing import List
 
 # TODO - Do value validation based on these parameters
 class GreetingsType(Enum):
