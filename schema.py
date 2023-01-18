@@ -29,7 +29,7 @@ class Greetings:
 
 
 class Weeks:
-    def __init__(self, id: int, createdAt: str = None, responsible: str = None, weekNr: int = None, tasksDone: List[int] = None):
+    def __init__(self, id: int, createdAt: str = None, responsible: str = None, weekNr: int = None, tasksDone: list[int] = None):
         self.id = id
         self.createdAt = createdAt
         self.responsible = responsible
