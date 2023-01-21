@@ -46,7 +46,7 @@ def getDbRandomGreeting(type: Optional[str] = None) -> str | None:
         dbGreetingsDictsList = supabase.table("greetings").select("greeting").execute().data
     else:
         # Only get the list of greetings of a specified type
-        dbGreetingsDictsList = supabase.table("greetings").select('greeting').filter("type", "eq", type).execute().data
+        dbGreetingsDictsList = supabase.table("greetings").select("greeting").filter("type", "eq", type).execute().data
     if(len(dbGreetingsDictsList) > 0):
         randomIndex = randint(0, len(dbGreetingsDictsList) - 1)
         randomDataEntry = (dbGreetingsDictsList[randomIndex])
