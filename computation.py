@@ -2,9 +2,16 @@
 from queries import getDbRandomGreeting, getDbResponsibleNameByOrderNr
 from schema import GreetingsType
 from stringlib import replaceUserNameInMessage
-from timedate import getCurrentWeekNr
-from data import userNamePattern
+from timedate import getCurrentDayNr, getCurrentWeekNr
+from data import userNamePattern, daysLeftPattern
 
+def calculateDaysLeftInWeek():
+    DAYS_IN_WEEK = 7
+    daysLeftInWeek = DAYS_IN_WEEK - getCurrentDayNr()
+    return daysLeftInWeek
+
+def replaceNumberOfDaysInMessage(message: str, textToReplace:str):
+    return message.replace(textToReplace, str(calculateDaysLeftInWeek()))
 
 def calcResponsibleOrderNrInWeekNr(weekNr: int):
     """Calculates the order_number of the responsible for the given week number.
@@ -23,9 +30,20 @@ def calcResponsibleOrderNrInWeekNr(weekNr: int):
 # TODO - Function description
 #      - Move into a new file?
 def generateNewShiftStartMessage():
-    randomWeeklyShiftStartMsg=getDbRandomGreeting(GreetingsType.weeklyShiftStart.value)
+    randomWeeklyShiftStartMsg: str = getDbRandomGreeting(GreetingsType.weeklyShiftStart.value)
     # TODO WeekNr = 0 on 01.01.2023, look into this
-    currentWeekResponsibleOrderNr = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
-    currentWeekResponsibleName = (getDbResponsibleNameByOrderNr(currentWeekResponsibleOrderNr))
-    newShiftStartMessage = replaceUserNameInMessage(randomWeeklyShiftStartMsg, userNamePattern, currentWeekResponsibleName)
+    currentWeekResponsibleOrderNr: str = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
+    currentWeekResponsibleName: str = (getDbResponsibleNameByOrderNr(currentWeekResponsibleOrderNr))
+    newShiftStartMessage: str = replaceUserNameInMessage(randomWeeklyShiftStartMsg, userNamePattern, currentWeekResponsibleName)
+    
     return newShiftStartMessage
+
+def generateNewShiftReminderMessage():
+    randomWeeklyShiftReminderMsg: str = getDbRandomGreeting(GreetingsType.weeklyShiftReminder.value)
+    # TODO WeekNr = 0 on 01.01.2023, look into this
+    currentWeekResponsibleOrderNr: str = calcResponsibleOrderNrInWeekNr(getCurrentWeekNr())
+    currentWeekResponsibleName: str = (getDbResponsibleNameByOrderNr(currentWeekResponsibleOrderNr))
+    shiftReminderMessage: str = replaceUserNameInMessage(randomWeeklyShiftReminderMsg, userNamePattern, currentWeekResponsibleName)
+    shiftReminderMessage: str = replaceNumberOfDaysInMessage(shiftReminderMessage, daysLeftPattern)
+    
+    return shiftReminderMessage

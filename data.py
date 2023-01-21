@@ -11,3 +11,4 @@ groupFacetiBaCuratenieId: str = os.environ['GROUP_FACETIBACURATENIE_ID']
 SUPABASE_URL: str = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY")
 userNamePattern: str = "@user"
+daysLeftPattern: str = "@days_left"

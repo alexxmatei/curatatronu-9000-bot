@@ -1,4 +1,4 @@
-from exportTypes import newShiftStart
+from exportTypes import newShiftStart, shiftReminder
 from telegram.ext import Updater, CallbackContext, JobQueue
 from data import CURATATRONU9000_API_TOKEN, groupFacetiBaCuratenieId
 
@@ -6,12 +6,18 @@ updater = Updater(CURATATRONU9000_API_TOKEN, use_context=True)
 job: JobQueue = updater.job_queue
 
 # TODO - Function description
-def cbSendScheduledMessage(context: CallbackContext):
+def cbSendScheduledShiftStartMessage(context: CallbackContext):
     if not isinstance(context, CallbackContext):
         raise TypeError("Input must be of type CallbackContext.")
     context.bot.send_message(chat_id=groupFacetiBaCuratenieId, text=newShiftStart.message)
 
-jobWeekly = job.run_daily(cbSendScheduledMessage, newShiftStart.startTime, newShiftStart.days)
+def cbSendScheduledShiftReminderMessage(context: CallbackContext):
+    if not isinstance(context, CallbackContext):
+        raise TypeError("Input must be of type CallbackContext.")
+    context.bot.send_message(chat_id=groupFacetiBaCuratenieId, text=shiftReminder.message)
+
+jobWeeklyShiftStart = job.run_daily(cbSendScheduledShiftStartMessage, newShiftStart.startTime, newShiftStart.days)
+jobWeeklyShiftReminder = job.run_daily(cbSendScheduledShiftReminderMessage, shiftReminder.startTime, shiftReminder.days)
 
 # TODO - Make more elegant
 #      - Add more details (chat_id, etc.)
