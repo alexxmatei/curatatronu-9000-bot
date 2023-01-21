@@ -1,9 +1,11 @@
 # TODO - Description & Validation for all classes in file
 from enum import Enum
+from typing import List
 
 # TODO - Do value validation based on these parameters
 class GreetingsType(Enum):
     weeklyShiftStart = "weekly_shift_start"
+    weeklyShiftReminder= "weekly_shift_reminder"
     greetingAddressed = "greeting_addressed"
     greetingGeneric = "greeting_generic"
 
