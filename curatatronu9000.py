@@ -1,3 +1,11 @@
+#TODO - Add reminders throught the for curatatronu'-9000 Copied
+#Ex:
+#weekly_shift_reminder
+#Bă @user, e miercuri, mai ai 5 zile de curățenie
+#Bă @user, e vineri, mai ai 3 zile de curățenie
+#weekly_shift_end
+#Bă @user, e duminică, azi e ultima ta zi de curățenie
+
 from exportTypes import newShiftStart, shiftReminder
 from telegram.ext import Updater, CallbackContext, JobQueue
 from data import CURATATRONU9000_API_TOKEN, groupFacetiBaCuratenieId
