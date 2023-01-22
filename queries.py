@@ -24,7 +24,7 @@ def getDbResponsibleNameByOrderNr(order: int) -> str | None:
     if order < 1 or order > 4:
         raise ValueError("Input must be between 1 and 4.")
 
-    dbResponsibleDictsList = supabase.table("responsabili_curatenie").select("nume").eq("order_nr", order).execute().data
+    dbResponsibleDictsList = supabase.table("responsabili_curatenie").select("nume").filter("order_nr", "eq", order).execute().data
     if(len(dbResponsibleDictsList) > 0):
         return dbResponsibleDictsList[0]['nume']
     else: return None
@@ -46,7 +46,7 @@ def getDbRandomGreeting(type: Optional[str] = None) -> str | None:
         dbGreetingsDictsList = supabase.table("greetings").select("greeting").execute().data
     else:
         # Only get the list of greetings of a specified type
-        dbGreetingsDictsList = supabase.table("greetings").select("greeting").eq("type", type).execute().data
+        dbGreetingsDictsList = supabase.table("greetings").select("greeting").filter("type", "eq", type).execute().data
     if(len(dbGreetingsDictsList) > 0):
         randomIndex = randint(0, len(dbGreetingsDictsList) - 1)
         randomDataEntry = (dbGreetingsDictsList[randomIndex])
