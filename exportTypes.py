@@ -1,6 +1,6 @@
 import pytz
 from datetime import time
-from calendar import MONDAY, SUNDAY
+from calendar import MONDAY, WEDNESDAY, FRIDAY, SUNDAY
 from computation import generateNewShiftReminderMessage, generateNewShiftStartMessage
 
 # TODO - Can you add parameters in documentation tooltip?
@@ -68,12 +68,12 @@ newShiftStartDay = [MONDAY]
 newShiftStartMessage = generateNewShiftStartMessage()
 
 # TODO - Add more days
-shiftReminderDay = [SUNDAY]
+shiftReminderDays = [WEDNESDAY, FRIDAY, SUNDAY]
 shiftReminderMessage = generateNewShiftReminderMessage()
 
 newShiftStart = Shift(newShiftStartTime, newShiftStartDay, newShiftStartMessage)
 # TODO - Rework Shift class?
 # TODO - Create a new shiftEnd as well for last day of the week
 # TODO - Add "urmeaza @user" message to shiftReminderMessage (or shiftEndMessage)
-shiftReminder = Shift(newShiftStartTime, shiftReminderDay, shiftReminderMessage)
+shiftReminder = Shift(newShiftStartTime, shiftReminderDays, shiftReminderMessage)
 
