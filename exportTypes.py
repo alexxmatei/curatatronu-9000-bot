@@ -69,6 +69,7 @@ newShiftStartMessage = generateNewShiftStartMessage()
 
 # TODO - Add more days
 shiftReminderDays = [WEDNESDAY, FRIDAY, SUNDAY]
+# TODO - On windows the number of days left get displayed incorrectly
 shiftReminderMessage = generateNewShiftReminderMessage()
 
 newShiftStart = Shift(newShiftStartTime, newShiftStartDay, newShiftStartMessage)
