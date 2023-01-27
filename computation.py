@@ -6,6 +6,8 @@ from timedate import getCurrentDayNr, getCurrentWeekNr
 from data import userNamePattern, daysLeftPattern
 
 def calculateDaysLeftInWeek():
+    # ToDo - On windows once scheduler starts, days do not update and get
+    #        re-calculated anymore.
     DAYS_IN_WEEK = 7
     daysLeftInWeek = DAYS_IN_WEEK - getCurrentDayNr()
     return daysLeftInWeek
